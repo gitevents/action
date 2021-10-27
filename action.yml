@@ -1,8 +1,8 @@
 name: GitEvents
-description: ''
+description: 'Tecch Events meet Issue Ops'
 branding:
-  color: white
-  icon: triangle
+  color: yellow
+  icon: users
 inputs:
   gitevents-bot-login:
     description: GitHub username of the bot account GitEvents uses
