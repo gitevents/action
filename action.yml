@@ -1,0 +1,16 @@
+name: GitEvents
+description: ''
+branding:
+  color: white
+  icon: triangle
+inputs:
+  gitevents-bot-login:
+    description: GitHub username of the bot account GitEvents uses
+    required: true
+  enable-auto-invite:
+    description: 'Enable Auto Invite to Organization'
+    required: true
+    default: false
+runs:
+  main: dist/index.js
+  using: node12

@@ -1,0 +1,19 @@
+{
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "globals": {
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "plugin:json/recommended",
+    "plugin:jest/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  }
+}
