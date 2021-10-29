@@ -1,16 +1,22 @@
 name: GitEvents
-description: 'Tecch Events meet Issue Ops'
+description: 'Tech Events meet Issue Ops'
 branding:
   color: yellow
   icon: users
 inputs:
-  gitevents-bot-login:
-    description: GitHub username of the bot account GitEvents uses
-    required: true
   enable-auto-invite:
     description: 'Enable Auto Invite to Organization'
     required: true
     default: false
+  gitevents-app-id:
+    description: 'GitHub App ID'
+    required: true
+  gitevents-app-private-key:
+    description: 'GitHub App Private Key'
+    required: true
+  gitevents-app-installation-id:
+    description: 'GitHub App Installation ID (from App Settings)'
+    required: true
 runs:
   main: dist/index.js
   using: node12

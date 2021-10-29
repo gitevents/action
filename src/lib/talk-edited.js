@@ -1,8 +1,9 @@
 const ghComment = require('./gh-comment')
 
 module.exports = exports = async function (github, context, core) {
+  core.info('gitevents: talk-edited')
+
   const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/')
-  const giteventsBotUserLogin = core.getInput('gitevents-bot-login')
 
   if (
     context.payload.changes.body.from.includes(
@@ -21,8 +22,7 @@ module.exports = exports = async function (github, context, core) {
       })
       const comment = comments.find(
         (c) =>
-          c.user.login === giteventsBotUserLogin &&
-          c.body.includes('Code of Conduct')
+          c.user.login === context.botUser && c.body.includes('Code of Conduct')
       )
       await github.rest.issues.removeLabel({
         owner: owner,

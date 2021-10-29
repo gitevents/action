@@ -1,14 +1,30 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
+const { Octokit } = require('@octokit/rest')
+const { createAppAuth } = require('@octokit/auth-app')
 
 async function run() {
   core.info('Starting GitEvents...')
-  const octokit = github.getOctokit(process.env.GITHUB_TOKEN)
+  const appId = core.getInput('gitevents-app-id')
+  const appPrivateKey = core.getInput('gitevents-app-private-key')
+  const appInstallationId = core.getInput('gitevents-app-installation-id')
+  const enableAutoInvite = core.getInput('enable-auto-invite')
+
+  const octokit = new Octokit({
+    authStrategy: createAppAuth,
+    auth: {
+      appId: appId,
+      privateKey: appPrivateKey,
+      installationId: appInstallationId
+    }
+  })
   const context = github.context
 
-  const enableAutoInvite = core.getInput('enable-auto-invite')
-  console.log(process.env)
-  // Commit "feat: set up GitEvents :tada:" to run the setup script
+  const { data: appUser } = await octokit.rest.apps.getAuthenticated()
+  const botUser = `${appUser.slug}[bot]`
+  context.botUser = botUser
+
+  // Commit "Enable GitEvents" to run the setup script
   // TODO: add more checks for sender permissions etc.
   if (
     context.eventName === 'push' &&
