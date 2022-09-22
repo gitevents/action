@@ -1,16 +1,17 @@
-module.exports = exports = async function (github, context, core) {
+import create from './lib/talk-created.js'
+import edit from './lib/talk-edited.js'
+
+export default async function (github, context, core) {
   core.info('GitEvents Issue Parser')
 
   if (context.eventName === 'issues') {
     if (context.payload.action === 'opened') {
       if (context.payload.issue.labels.find((l) => l.name.includes('Talk:'))) {
-        const fn = require('./lib/talk-created')
-        await fn(github, context, core)
+        await create(github, context, core)
       }
     } else if (context.payload.action === 'edited') {
       if (context.payload.issue.labels.find((l) => l.name.includes('Talk:'))) {
-        const fn = require('./lib/talk-edited')
-        await fn(github, context, core)
+        await edit(github, context, core)
       }
     }
   }

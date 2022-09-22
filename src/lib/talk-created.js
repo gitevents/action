@@ -1,6 +1,6 @@
-const ghComment = require('./gh-comment')
+import ghComment from './gh-comment.js'
 
-module.exports = exports = async function (github, context, core) {
+export default async function (github, context, core) {
   const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/')
 
   if (

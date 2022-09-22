@@ -19,4 +19,6 @@ assignees: ''
 
 ### Code of Conduct
 
-We expect everyone to uphold our [Code of Conduct](https://berlincodeofconduct.org/), so please take a minute to read through it.
+We expect everyone to uphold our
+[Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/),
+so please take a minute to read through it.

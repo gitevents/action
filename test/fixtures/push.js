@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   repo: {
     owner: 'gitevents',
     repo: 'actions'

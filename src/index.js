@@ -1,7 +1,11 @@
-const core = require('@actions/core')
-const github = require('@actions/github')
-const { Octokit } = require('@octokit/rest')
-const { createAppAuth } = require('@octokit/auth-app')
+import core from '@actions/core'
+import github from '@actions/github'
+import { Octokit } from '@octokit/rest'
+import { createAppAuth } from '@octokit/auth-app'
+
+import setup from './setup.js'
+import invite from './lib/gh-invite.js'
+import issues from './issues.js'
 
 async function run() {
   core.info('Starting GitEvents...')
@@ -31,17 +35,14 @@ async function run() {
     context.payload.head_commit &&
     context.payload.head_commit.message === 'Enable GitEvents'
   ) {
-    const setup = require('./setup.js')
     await setup(octokit, context, core)
   }
 
   if (!!enableAutoInvite === true) {
-    const invite = require('./lib/gh-invite.js')
     await invite(octokit, context, core)
   }
 
   if (context.eventName === 'issues') {
-    const issues = require('./issues.js')
     await issues(octokit, context, core)
   }
 }
