@@ -1,7 +1,11 @@
-const fs = require('fs')
-const { join } = require('path')
+import fs from 'fs'
+import { join } from 'path'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
-module.exports = exports = async function (github, context, core) {
+export default async function (github, context, core) {
   core.info('Starting GitEvents Setup')
 
   const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/')

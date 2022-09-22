@@ -1,4 +1,4 @@
-module.exports = exports = async function (github, context, core) {
+export default async function (github, context, core) {
   core.info('Checking membership and invitation status...')
   const [owner] = process.env.GITHUB_REPOSITORY.split('/')
 

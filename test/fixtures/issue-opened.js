@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   payload: {
     action: 'opened',
     issue: {
@@ -6,7 +6,7 @@ module.exports = {
       assignee: null,
       assignees: [],
       author_association: 'CONTRIBUTOR',
-      body: "<!-- Try to stick to 500 characters (about two tweets :bird:). If you know already, please let us know how long the talk will be as this helps us plan the meetups. -->\r\n\r\n- [ ] This will be my first tech talk\r\n\r\n### Contact Details\r\n\r\n<!-- We'll mostly use this issue for communication. But it might help to leave your Twitter or e-mail. Please let us know if we should a link to your Twitter account or website on our page. -->\r\n\r\n### Code of Conduct\r\n\r\n<!-- We expect all of our speakers to uphold our Code of Conduct, so please take a minute to read through it. -->\r\n\r\n- [ ] I've read and agree to the [Code of Conduct](https://berlincodeofconduct.org/)\r\n",
+      body: "<!-- Try to stick to 500 characters (about two tweets :bird:). If you know already, please let us know how long the talk will be as this helps us plan the meetups. -->\r\n\r\n- [ ] This will be my first tech talk\r\n\r\n### Contact Details\r\n\r\n<!-- We'll mostly use this issue for communication. But it might help to leave your Twitter or e-mail. Please let us know if we should a link to your Twitter account or website on our page. -->\r\n\r\n### Code of Conduct\r\n\r\n<!-- We expect all of our speakers to uphold our Code of Conduct, so please take a minute to read through it. -->\r\n\r\n- [ ] I've read and agree to the [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)\r\n",
       closed_at: null,
       comments: 0,
       comments_url:

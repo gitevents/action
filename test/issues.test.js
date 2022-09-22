@@ -1,19 +1,20 @@
-/* eslint-disable node/no-unsupported-features/es-syntax */
+/* eslint-disable node/no-unpublished-import */
+import { test, expect, vi } from 'vitest'
 import issues from '../src/issues.js'
+import issueOpened from './fixtures/issue-opened.js'
 
 test('issues() should check for code-of-conduct and return instructions', async () => {
-  const issueOpened = await import('./fixtures/issue-opened')
   const octokit = {
-    rest: { issues: { createComment: jest.fn(), addLabels: jest.fn() } }
+    rest: { issues: { createComment: vi.fn(), addLabels: vi.fn() } }
   }
   const core = {
-    info: jest.fn(),
-    getInput: jest.fn()
+    info: vi.fn(),
+    getInput: vi.fn()
   }
 
   await issues(octokit, issueOpened, core)
   expect(octokit.rest.issues.createComment).toHaveBeenCalledWith({
-    body: 'Thanks for your proposal!\n\nThis group follows a Code of Conduct. In order to proceed, you need to read and agree to our [Code of Conduct](https://berlincodeofconduct.org/).\n',
+    body: 'Thanks for your proposal!\n\nThis group follows a Code of Conduct. In order to proceed, you need to read and agree to our [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).\n',
     issue_number: 16,
     owner: 'gitevents',
     repo: 'action'
@@ -22,15 +23,14 @@ test('issues() should check for code-of-conduct and return instructions', async 
 })
 
 test('issues() should check for code-of-conduct', async () => {
-  const issueOpened = await import('./fixtures/issue-opened')
   issueOpened.payload.issue.body =
     "- [x] I've read and agree to the [Code of Conduct]"
   const octokit = {
-    rest: { issues: { createComment: jest.fn() } }
+    rest: { issues: { createComment: vi.fn() } }
   }
   const core = {
-    info: jest.fn(),
-    getInput: jest.fn()
+    info: vi.fn(),
+    getInput: vi.fn()
   }
 
   await issues(octokit, issueOpened, core)
@@ -43,10 +43,10 @@ test('issues() should check for code-of-conduct', async () => {
 })
 
 test('issues() with custom template folder', async () => {
-  const octokit = { rest: { issues: { createComment: jest.fn() } } }
+  const octokit = { rest: { issues: { createComment: vi.fn() } } }
   const core = {
-    info: jest.fn(),
-    getInput: jest.fn().mockImplementation(() => {
+    info: vi.fn(),
+    getInput: vi.fn().mockImplementation(() => {
       return 'templates'
     })
   }
