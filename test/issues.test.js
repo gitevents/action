@@ -14,7 +14,7 @@ test('issues() should check for code-of-conduct and return instructions', async 
 
   await issues(octokit, issueOpened, core)
   expect(octokit.rest.issues.createComment).toHaveBeenCalledWith({
-    body: 'Thanks for your proposal!\n\nThis group follows a Code of Conduct. In order to proceed, you need to read and agree to our [Code of Conduct](./blob/main/CODE_OF_CONDUCT.md).',
+    body: 'Thanks for your proposal!\n\nThis group follows a Code of Conduct. In order to proceed, you need to read and agree to our [Code of Conduct](./blob/main/CODE_OF_CONDUCT.md).\n',
     issue_number: 16,
     owner: 'gitevents',
     repo: 'action'
