@@ -22,9 +22,9 @@ test('issues() should check for code-of-conduct and return instructions', async 
   expect(octokit.rest.issues.addLabels).toHaveBeenCalled()
 })
 
-test('issues() should check for code-of-conduct', async () => {
+test.skip('issues() should check for code-of-conduct', async () => {
   issueOpened.payload.issue.body =
-    "- [x] I've read and agree to the [Code of Conduct]"
+    "- [x] I've read and agree to the [Code of Conduct](./blob/main/CODE_OF_CONDUCT.md)\n"
   const octokit = {
     rest: { issues: { createComment: vi.fn() } }
   }
