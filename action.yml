@@ -7,7 +7,6 @@ inputs:
   enable-auto-invite:
     description: 'Enable Auto Invite to Organization'
     required: true
-    default: false
   gitevents-app-id:
     description: 'GitHub App ID'
     required: true
@@ -19,4 +18,4 @@ inputs:
     required: true
 runs:
   main: dist/index.js
-  using: node16
+  using: node20

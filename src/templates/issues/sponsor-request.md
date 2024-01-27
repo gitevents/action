@@ -12,4 +12,5 @@ assignees: ''
 
 <!-- We expect all of our sponsors to uphold our Code of Conduct, so please take a minute to read through it. -->
 
-- [ ] I've read and agree to the [Code of Conduct](https://berlincodeofconduct.org)
+- [ ] I've read and agree to the
+      [Code of Conduct](./blob/main/CODE_OF_CONDUCT.md)

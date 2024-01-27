@@ -7,12 +7,12 @@ export default async function (github, context, core) {
 
   if (
     context.payload.changes.body.from.includes(
-      "- [ ] I've read and agree to the [Code of Conduct]"
+      "- [ ] I've read and agree to the [Code of Conduct](./blob/main/CODE_OF_CONDUCT.md)"
     )
   ) {
     if (
       context.payload.issue.body.includes(
-        "- [x] I've read and agree to the [Code of Conduct]"
+        "- [x] I've read and agree to the [Code of Conduct](./blob/main/CODE_OF_CONDUCT.md)"
       )
     ) {
       const { data: comments } = await github.rest.issues.listComments({

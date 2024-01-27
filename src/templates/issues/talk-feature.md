@@ -14,4 +14,4 @@ assignees: ''
 <!-- We expect all of our speakers to uphold our Code of Conduct, so please take a minute to read through it. -->
 
 - [ ] I've read and agree to the
-      [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
+      [Code of Conduct](./blob/main/CODE_OF_CONDUCT.md)
