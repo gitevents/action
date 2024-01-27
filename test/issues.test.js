@@ -14,7 +14,7 @@ test('issues() should check for code-of-conduct and return instructions', async 
 
   await issues(octokit, issueOpened, core)
   expect(octokit.rest.issues.createComment).toHaveBeenCalledWith({
-    body: 'Thanks for your proposal!\n\nThis group follows a Code of Conduct. In order to proceed, you need to read and agree to our [Code of Conduct](./blob/main/CODE_OF_CONDUCT.md).\n',
+    body: 'Thanks for your proposal!\n\nThis group follows a Code of Conduct. In order to proceed, you need to read and agree to our [Code of Conduct](./blob/main/CODE_OF_CONDUCT.md).',
     issue_number: 16,
     owner: 'gitevents',
     repo: 'action'
@@ -24,7 +24,7 @@ test('issues() should check for code-of-conduct and return instructions', async 
 
 test.skip('issues() should check for code-of-conduct', async () => {
   issueOpened.payload.issue.body =
-    "- [x] I've read and agree to the [Code of Conduct](./blob/main/CODE_OF_CONDUCT.md)\n"
+    "- [x] I've read and agree to the [Code of Conduct](./blob/main/CODE_OF_CONDUCT.md)"
   const octokit = {
     rest: { issues: { createComment: vi.fn() } }
   }
