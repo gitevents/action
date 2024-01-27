@@ -15646,6 +15646,7 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from 'module'
   },
 
   /***/ 1867: /***/ (module, exports, __nccwpck_require__) => {
+    /*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
     /* eslint-disable node/no-deprecated-api */
     var buffer = __nccwpck_require__(4300)
     var Buffer = buffer.Buffer
@@ -15672,6 +15673,8 @@ import { createRequire as __WEBPACK_EXTERNAL_createRequire } from 'module'
     function SafeBuffer(arg, encodingOrOffset, length) {
       return Buffer(arg, encodingOrOffset, length)
     }
+
+    SafeBuffer.prototype = Object.create(Buffer.prototype)
 
     // Copy static methods from Buffer
     copyProps(Buffer, SafeBuffer)
@@ -39212,7 +39215,7 @@ ${pendingInterceptorsFormatter.format(pending)}
         return navigator.userAgent
       }
 
-      if (typeof process === 'object' && 'version' in process) {
+      if (typeof process === 'object' && process.version !== undefined) {
         return `Node.js/${process.version.substr(1)} (${process.platform}; ${process.arch})`
       }
 
