@@ -17,7 +17,7 @@ export default async function (github, context, core) {
     await ghComment(github, context, core, 'comment-ack-coc')
   } else if (
     context.payload.issue.body.includes(
-      "- [x] I've read and agree to the [Code of Conduct]"
+      "- [x] I've read and agree to the [Code of Conduct](./blob/main/CODE_OF_CONDUCT.md)"
     )
   ) {
     await ghComment(github, context, core, 'comment-first-response')

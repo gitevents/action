@@ -28,5 +28,5 @@ assignees: ''
 ### Code of Conduct
 
 We expect everyone to uphold our
-[Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/),
-so please take a minute to read through it.
+[Code of Conduct](./blob/main/CODE_OF_CONDUCT.md), so please take a minute to
+read through it.
