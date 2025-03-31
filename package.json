@@ -82,7 +82,7 @@
     "license-checker": "^25.0.1",
     "pinst": "^3.0.0",
     "prettier": "^3.2.4",
-    "vitest": "^1.6.1",
+    "vitest": "^3.0.9",
     "webpack": "^5.94.0"
   }
 }
